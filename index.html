@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Mevalar do'koni</title>
+ <style>
+.card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+ .fon { background-color: lightgrey;}
+ .sale { background-color: orange; }
+.sold-out { opacity: 0.4; }
+.hidden { display: none; }
+ .eng-qimmat {border: 1px solid red;}
+</style>
+</head>
+<body>
+<h1 id="shop-title">Mevalar do'koni</h1>
+
+ <div id="shop">
+<h3>Olma</h3>
+<p class="price">5000</p>
+ <span class="stock">Tugagan</span>
+</div>
+<div class="card" id="card2">
+ <h3>Banan</h3>
+<p class="price">12000</p>
+<span class="stock">Bor</span>
+</div>
+ <div class="card" id="card3">
+<h3>Uzum</h3>
+<p class="price">20000</p>
+<span class="stock">Tugagan</span>
+ </div>
+<div class="card" id="card4">
+<h3>Anor</h3>
+<p class="price">9000</p>
+<span class="stock">Bor</span>
+ </div>
+ </div>
+
+<script>
+let mahsulotlar = document.querySelectorAll(".stock")
+for(let mahsulot of mahsulotlar){
+if(mahsulot.textContent == "Tugagan"){
+mahsulot.parentElement.classList.add("sold-out")
+ }else{
+mahsulot.style.color = "green";
+}
+}
+console.log(mahsulotlar);
+
+/* let narxlar = document.querySelectorAll(".price");
+for(let narx of narxlar){
+if(Number(narx.textContent) < 10000){
+narx.parentElement.classList.add("sale")
+}
+}
+ console.log(narxlar);
+
+for(let i = 0; i < kartalar.length; i++){
+if(i % 2 == 1){
+kartalar[i].classList.add("fon")
+}
+} */
+
+let narxlar = document.querySelectorAll(".price");
+
+let qimmatNarx = narxlar[0];
+ let qimmatMahsulot = ""
+ for(narx of narxlar){
+if(Number(narx.textContent) > Number(qimmatNarx.textContent)){
+qimmatNarx = narx;
+ }
+ }
+ qimmatNarx.parentElement.classList.add("eng-qimmat");
+
+
+</script>
+</body>
+</html>
